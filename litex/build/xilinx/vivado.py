@@ -33,7 +33,7 @@ def _format_xdc_constraint(c):
         return "set_property DRIVE " + str(c.strength)
     elif isinstance(c, Misc):
         return "set_property " + c.misc.replace("=", " ")
-    elif isinstance(c, Inverted):
+    elif isinstance(c, Inverted) or isinstance(c, PlatformInfo):
         return None
     else:
         raise ValueError("unknown constraint {}".format(c))
